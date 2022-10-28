@@ -1,3 +1,44 @@
-void setup()
-pinMode(2,OUTPUT);
-digitalWrite(2)
+int digit = 0; //index of the matrix
+int letter[] = {0, 0, 0, 0}; //what the letter is
+int nLoop = 0; // number of empty loops
+int pLoop = 0;  // number of filled loops
+int signal = 7;
+
+/*  Loop Description: Check for button signal, check with nLoop to determine if it is a dot or a dash. 
+    Check if end of word or new letter. Increment the nLoop and do things if new letter or end of word.
+*/
+
+void setup() {
+  pinMode(signal, INPUT);
+
+}
+
+void loop() {
+  while(1) //character
+  {
+    if(signal == 1) //beep boop
+    {
+      pLoop++;
+      if(pLoop == 1)
+      {
+        letter[digit] = 1;
+      }
+      if(pLoop == 3)
+      {
+        letter[digit] = 2;
+      }
+      //determine if dot or dash, update letter[] accordingly using nLoop
+    
+    }
+    //checking if end of word or new letter, changing nLoop
+    if(nLoop == 1) { //new digit
+    digit++;
+    }
+    else if(nLoop == 2) { //end of letter
+      pLoop = 0;
+    }
+    else if(nLoop == 7) { //end of word
+
+    }
+  }
+}
